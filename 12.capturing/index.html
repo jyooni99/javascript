@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form, div, p {
+      border: 1px solid orangered;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form>Form
+    <div>Div
+      <p>P</p>
+    </div>
+  </form>
+  <script>
+    //이벤트는 원래 하위 요소로 전파되는 캡처링 단계를 거침. 
+    // 타깃요소에 도착하면, 그 때 상위요소로 전파되는 버블링이 실행됨
+    //하지만, 캡처링 단계는 보이지 않음. 이를 보이게 하려면 true 키워드 사용해야 함
+
+    for (let ele of document.querySelectorAll('*')){
+      ele.addEventListener('click', e => alert(`캡쳐링: ${ele.tagName}`), true);
+      ele.addEventListener('click', e => alert(`버블링: ${ele.tagName}`));
+    }
+  </script>
+</body>
+</html>
