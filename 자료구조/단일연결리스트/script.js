@@ -71,7 +71,7 @@ class SinglyLinkedList {
     if (!this.head) return undefined;
 
     let current = this.head;
-    this.head = current.head.next;
+    this.head = current.next;
 
     this.length--;
     return current;
@@ -119,5 +119,42 @@ class SinglyLinkedList {
     newNode.next = next;
     this.length++;
     return true;
+  }
+
+  remove(idx){
+    // 인덱스가 0이하, 리스트 길이보다 크거나 같을 때 -> return undefined
+    if(idx < 0 || idx >= this.length) return undefined; 
+
+    // 인덱스가 0일 때 -> shift
+    if(idx === 0 ) return this.shift(); 
+
+    // 인덱스가 리스트 길이 - 1일 때 -> pop
+    if(idx === this.length - 1) return this.pop(); 
+
+    // 그 외 범위일 때 -> 해당 인덱스 노드 삭제, 이전 노드를 다음 노드와 연결
+    const prevNode = this.get(idx - 1);
+    const removed = prevNode.next;
+    prevNode.next = removed.next;
+    
+    this.length--;
+    return removed;
+  }
+
+  reverse(){
+    let current = this.head; // 현재 노드를 가리킨다.    
+    this.head = this.tail;
+    this.tail = current;
+    
+    let prev = null; // 이전 노드를 가리킨다.
+    let next = null; // 다음 노드를 가리킨다.
+
+    while(current){
+      next = current.next; // 다음 노드에 다음 노드를 저장
+      current.next = prev; // 이전 노드를 다음 노드로 설정 
+      prev = current;  // 이전 노드에 현재 노드 저장
+      current = next;  // 현재 노드에 다음 노드 저장
+    }
+
+    return this;
   }
 }
