@@ -91,7 +91,7 @@ function createTodoElement(item){
 
   removeBtn.addEventListener('click', () => {
     // 데이터 지우기
-    todos = todos.filter(todo => todo.id !== itemEl);
+    todos = todos.filter(todo => todo.id !== item.id);
 
     //요소 지우기
     itemEl.remove();
