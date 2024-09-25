@@ -38,10 +38,6 @@ function createTodoElement(item){
   checkboxEl.type = 'checkbox';
   checkboxEl.checked = item.complete;
 
-  if(item.complete){
-    itemEl.classList.add('complete');
-  }
-
   //text input
   const inputEl = document.createElement('input');
   inputEl.type = 'text';
@@ -72,7 +68,7 @@ function createTodoElement(item){
   checkboxEl.addEventListener('change', ()=>{
     item.complete = checkboxEl.checked;
 
-    if(item.compplete){
+    if(item.complete){
       itemEl.classList.add('complete');
     }else{
       itemEl.classList.remove('complete');
