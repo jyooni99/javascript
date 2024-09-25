@@ -1,6 +1,3 @@
-// disabled 속성 적용 x , storage 저장 안됨 
-
-
 // 변수, 상수 만들기
 const createBtn = document.getElementById('createBtn');
 const list = document.getElementById('list');
