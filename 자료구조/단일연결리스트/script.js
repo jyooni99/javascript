@@ -74,6 +74,11 @@ class SinglyLinkedList {
     this.head = current.next;
 
     this.length--;
+    
+    if(this.length === 0){ 
+      this.head = null;
+      this.tail = null;
+    }
     return current;
   }
 
