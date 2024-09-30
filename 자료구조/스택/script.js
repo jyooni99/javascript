@@ -54,7 +54,7 @@ class Stack {
     if (this.isEmpty()) {
       return "Stack is empty"; 
     }
-    return this.head.value; 
+    return this.head.val; 
   }
 
   isEmpty() {

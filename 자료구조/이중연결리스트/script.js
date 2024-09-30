@@ -128,8 +128,8 @@ class DoublyLinkedList {
 
   remove(idx){
     if(idx < 0 || idx > this.length) return false;
-    if(idx === 0) return !!this.shift();
-    if(idx === this.length) return !!this.pop();
+    if(idx === 0) return this.shift();
+    if(idx === this.length) return this.pop();
 
     const getNode = this.get(idx);
     const prevNode = getNode.prev;
