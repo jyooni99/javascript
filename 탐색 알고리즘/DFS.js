@@ -46,3 +46,21 @@ function DFSIn(){
   inorder(node);
   return visit;
 }
+
+
+//Postorder
+function DFSPost(){
+  const visit = [];
+  const node = this.root;
+
+  if (!node) return visit;
+
+  function postorder(current){
+    if(current.left) postorder(current.left);
+    if(current.right) postorder(current.right);
+    visit.push(current.val);
+  }
+
+  postorder(node);
+  return visit;
+}
