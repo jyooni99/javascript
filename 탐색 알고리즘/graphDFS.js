@@ -59,10 +59,10 @@ class Graph {
     return result;
   }
 
-  breadthFirstSearch(start){
+  BreadthFirstSearch(start){
     const queue = [start];
-    const visited = {};
     const result = [];
+    const visited = {};
     let vertex;
     visited[start] = true;
 
